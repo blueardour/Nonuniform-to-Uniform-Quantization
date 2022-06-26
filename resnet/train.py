@@ -159,6 +159,7 @@ def main():
         start_epoch = checkpoint['epoch'] + 1
         best_top1_acc = checkpoint['best_top1_acc']
         model_student.load_state_dict(checkpoint['state_dict'], strict=False)
+        optimizer.load_state_dict(checkpoint['optimizer'])
         logging.info("loaded checkpoint {} epoch = {}" .format(checkpoint_tar, checkpoint['epoch']))
 
     # adjust the learning rate according to the checkpoint
